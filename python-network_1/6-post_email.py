@@ -10,12 +10,6 @@ import requests
 if __name__ == "__main__":
     url = sys.argv[1]
     email = sys.argv[2]
-    
-    # Göndərəcəyimiz məlumatı lüğət (dictionary) şəklində hazırlayırıq
     payload = {'email': email}
-    
-    # POST sorğusunu göndəririk və məlumatı data parametrinə ötürürük
     r = requests.post(url, data=payload)
-    
-    # Qayıdan cavabın mətnini (body) çap edirik
     print(r.text)
