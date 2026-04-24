@@ -12,16 +12,13 @@ if __name__ == "__main__":
     url = sys.argv[1]
     email = sys.argv[2]
 
-    # Göndərəcəyimiz məlumatları bir lüğətdə (dictionary) toplayırıq
     values = {'email': email}
-    
-    # Məlumatları URL formatına salırıq və baytlara çeviririk
+
     data = urllib.parse.urlencode(values)
     data = data.encode('ascii')
-    
-    # Sorğunu hazırlayırıq (data əlavə edildiyi üçün avtomatik POST olur)
+
     req = urllib.request.Request(url, data)
-    
+
     with urllib.request.urlopen(req) as response:
         html = response.read()
         print(html.decode('utf-8'))
